@@ -1,16 +1,21 @@
-.category-dropdown {
-  display: inline-block;
+.SearchFilter {
+  margin: 20px 0 0;
 }
 
-.date-dropdown {
-  margin-right: 20px;
-  display: inline-block;
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sort-dropdown {
-  margin-left: 20px;
-  display: inline-block;
+.filters > div {
+  margin: 0 10px
 }
-#containter {
-  text-align: center;
+
+.date-filter {
+  display: flex;
+}
+
+.date-filter > div:first-of-type {
+  margin-right: 10px;
 }

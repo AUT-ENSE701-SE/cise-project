@@ -1,33 +1,48 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Dropdown, DropdownButton, Container } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Container, Button } from 'react-bootstrap';
 import './SearchFilter.css';
 
 class SearchFilter extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.resetFilters = () => {
+      this.props.onFiltersChange({
+        dateFilter: null,
+        categoryFilter: null,
+        sortFilter: null,
+      })
+    }
+  }
+
   render() {
     return (
       <div className="SearchFilter">
         <Container fluid>
-          <h3>Refine Search</h3>
+          <h4>Refine Search</h4>
 
           <div className="filters">
             {/* Date Filter */}
             <div className="date-filter">
-              <div>Pick a date</div>
               <DatePicker
-                selected={this.props.dateFilter}
-                onChange={(date) =>
-                  this.props.onFiltersChange({
-                    ...this.props,
-                    dateFilter: date,
-                  })
-                }
+                  placeholderText="Year"
+                  showYearPicker
+                  dateFormat="yyyy"
+                  selected={this.props.dateFilter}
+                  onChange={(date) =>
+                    this.props.onFiltersChange({
+                      ...this.props,
+                      dateFilter: date,
+                    })
+                  }
               />
             </div>
 
-            {/* Category Filter */}
+            {/* Category Filter 
             <DropdownButton
+              size="sm"
               title={
                 this.props.categoryFilter
                   ? `Category: ${this.props.categoryFilter}`
@@ -75,10 +90,11 @@ class SearchFilter extends React.Component {
               >
                 Software Engineering Practices
               </Dropdown.Item>
-            </DropdownButton>
+            </DropdownButton>*/}
 
             {/* Sort by Filter */}
             <DropdownButton
+              size="sm"
               title={
                 this.props.sortFilter
                   ? `Sort by: ${this.props.sortFilter}`
@@ -107,6 +123,11 @@ class SearchFilter extends React.Component {
                 Title
               </Dropdown.Item>
             </DropdownButton>
+
+            {/* Reset Filter */}
+            <div className="reset-filters-button">
+              <Button size="sm" onClick={this.resetFilters}>Reset Filters</Button>
+            </div>
           </div>
         </Container>
       </div>

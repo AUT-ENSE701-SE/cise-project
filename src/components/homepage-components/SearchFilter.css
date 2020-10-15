@@ -15,7 +15,3 @@
 .date-filter {
   display: flex;
 }
-
-.date-filter > div:first-of-type {
-  margin-right: 10px;
-}

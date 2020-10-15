@@ -1,12 +1,12 @@
 import React from 'react';
-import './SearchButton.css';
 import { Button } from 'react-bootstrap';
+import './SearchButton.css';
 
 class SearchButton extends React.Component {
   render() {
     return (
       <div>
-        <Button className="button-style" {...this.props}>
+        <Button className="button-style" variant="success" {...this.props}>
           Search
         </Button>
       </div>
